@@ -1,6 +1,6 @@
-body {
-    background-color: gray;
-    padding: 0px;
+* {
+    
+
 }
 
 .entirePage {
@@ -8,6 +8,7 @@ body {
     display: flex;
     flex-direction: column;
     margin: 0px;
+    width:100%;
 }
 
 .page {
@@ -35,8 +36,8 @@ body {
 }
 
 .cardImage {
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     border-radius: 15%;
     object-fit: cover;
 }
@@ -70,16 +71,17 @@ body {
 
 .topTitle {
     align-self: center;
-    text-align: center;
+    text-align: left;
     background-color: aliceblue;
     width: 100%;
-    padding: 40px;
+    padding: 25px;
+    padding-left: 80px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 8px;
     margin-bottom: 0px;
 }
 
 .cardTitle {
-    font-size: xx-large;
+    font-size: x-large;
 }
 
 .cardDesc {
