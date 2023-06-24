@@ -1,0 +1,91 @@
+body {
+    background-color: gray;
+    padding: 0px;
+}
+
+.entirePage {
+    background-color: #fafaf6;
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+}
+
+.page {
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+    padding-top: 0px;
+    padding-bottom: 20px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    margin-left: 1%;
+    width: 200px;
+}
+
+.contentChild {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: center;
+}
+
+.cardImage {
+    width: 300px;
+    height: 300px;
+    border-radius: 15%;
+    object-fit: cover;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: aliceblue;
+    padding: 20px;
+    margin: 30px;
+    border-radius: 10%;
+    height: 400px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 8px;
+}
+
+.navButton, .searchBar {
+    text-decoration: none;
+    background-color: aliceblue;
+    padding: 20px 30px;
+    width: 100%;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.searchBar {
+    padding-right: 0px;
+    padding-left: 0px;
+    text-align: center;
+}
+
+.topTitle {
+    align-self: center;
+    text-align: center;
+    background-color: aliceblue;
+    width: 100%;
+    padding: 40px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 8px;
+    margin-bottom: 0px;
+}
+
+.cardTitle {
+    font-size: xx-large;
+}
+
+.cardDesc {
+    font-size: larger;
+}
+
+.options {
+
+}
