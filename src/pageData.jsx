@@ -39,7 +39,6 @@ const books = [
         title: "placeholder",
         description: "placeholding for you!",
     }
-        
     
 ]
 
