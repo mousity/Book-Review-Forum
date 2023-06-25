@@ -1,19 +1,22 @@
-* {
-    
-
-}
 
 .entirePage {
-    background-color: #fafaf6;
+    background-color: #79b096;
     display: flex;
     flex-direction: column;
     margin: 0px;
-    width:100%;
+    width: 100%;
+    min-height: 100vh;
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
 }
 
 .page {
     display: flex;
     flex-direction: row;
+    height: 100vh;
 }
 
 .navbar {
@@ -69,7 +72,7 @@
     text-align: center;
 }
 
-.topTitle {
+.heading {
     align-self: center;
     text-align: left;
     background-color: aliceblue;
@@ -78,6 +81,10 @@
     padding-left: 80px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 8px;
     margin-bottom: 0px;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: center;
 }
 
 .cardTitle {
@@ -88,6 +95,12 @@
     font-size: larger;
 }
 
-.options {
+.logo {
+    width: 140px;
+    margin-left: 23px;
+    border-radius: 50%;
+}
 
+.topTitle {
+    font-size: 50px;
 }
