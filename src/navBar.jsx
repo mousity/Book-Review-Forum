@@ -8,7 +8,10 @@ export default function NavBar () {
 
     return (
         <div className="entirePage">
-            <h1 className="topTitle">Path of Pages Forum</h1>
+            <span className="heading">
+                <img className="logo" src="src\assets\Logo.jpg" alt="Book Cat" ></img>
+                <h1 className="topTitle">Path of Pages Forum</h1>
+            </span>
             <div className="page">
                 <div className="navbar">
                     <div className="searchBar">SearchBarTemp</div>
