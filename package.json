@@ -1,7 +1,7 @@
 {
   "name": "book-review-forum",
   "private": false,
-  "homepage": "https://mousity.github.io/mousity/Book-Review-Forum",
+  "homepage": "https://mousity.github.io/Book-Review-Forum/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
