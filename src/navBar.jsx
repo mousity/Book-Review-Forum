@@ -3,9 +3,6 @@ import books from "./pageData";
 import BookCard from "./bookCard";
 
 export default function NavBar () {
-
-    
-
     return (
         <div className="entirePage">
             <span className="heading">
@@ -14,7 +11,7 @@ export default function NavBar () {
             </span>
             <div className="page">
                 <div className="navbar">
-                    <div className="searchBar">SearchBarTemp</div>
+                    <input placeholder="Enter Post Title"/>
                     <button className="navButton">Home</button>
                     <button className="navButton">About Us</button>
                     <button className="navButton">Favorites</button>
@@ -25,6 +22,10 @@ export default function NavBar () {
                         <BookCard books={books}/>
                     </div>
                 </div>
+            </div>
+            <div className="footer">
+                <p>GitHub</p>
+                <p>LinkedIn</p>
             </div>
         </div>
     )
