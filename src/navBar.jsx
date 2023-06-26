@@ -4,11 +4,15 @@ import BookCard from "./bookCard";
 
 export default function NavBar () {
 
-    const [query, setQuery] = useState("");
-    function handleChange(event) {
-        setQuery(event.target.value);
+    const [titleQuery, setTitleQuery] = useState("");
+    const [authorQuery, setAuthorQuery] = useState("");
+    function handleTitleChange(event) {
+        setTitleQuery(event.target.value);
     }
 
+    function handleAuthorChange(event) {
+        setAuthorQuery(event.target.value);
+    }
 
     return (
         <div className="entirePage">
@@ -18,7 +22,8 @@ export default function NavBar () {
             </span>
             <div className="page">
                 <div className="navbar">
-                    <input id="search" placeholder="Enter Book Title" onChange={handleChange}/>
+                    <input id="searchTitle" placeholder="Search Book Title" onChange={handleTitleChange}/>
+                    <input id="searchAuthor" placeholder="Search Book Author" onChange={handleAuthorChange}/>
                     <button className="navButton">Home</button>
                     <button className="navButton">About Us</button>
                     <button className="navButton">Favorites</button>
@@ -26,7 +31,7 @@ export default function NavBar () {
 
                 <div className="content">
                     <div className="contentChild">
-                        <BookCard books={books} query={query}/>
+                        <BookCard books={books} titleQuery={titleQuery} authorQuery={authorQuery}/>
                     </div>
                 </div>
             </div>
