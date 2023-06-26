@@ -1,8 +1,15 @@
-import React, { Fragment } from "react";
+import React, { Fragment, onChange, useState } from "react";
 import books from "./pageData";
 import BookCard from "./bookCard";
 
 export default function NavBar () {
+
+    const [query, setQuery] = useState("");
+    function handleChange(event) {
+        setQuery(event.target.value);
+    }
+
+
     return (
         <div className="entirePage">
             <span className="heading">
@@ -11,7 +18,7 @@ export default function NavBar () {
             </span>
             <div className="page">
                 <div className="navbar">
-                    <input placeholder="Enter Post Title"/>
+                    <input id="search" placeholder="Enter Book Title" onChange={handleChange}/>
                     <button className="navButton">Home</button>
                     <button className="navButton">About Us</button>
                     <button className="navButton">Favorites</button>
@@ -19,7 +26,7 @@ export default function NavBar () {
 
                 <div className="content">
                     <div className="contentChild">
-                        <BookCard books={books}/>
+                        <BookCard books={books} query={query}/>
                     </div>
                 </div>
             </div>
