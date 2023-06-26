@@ -98,7 +98,7 @@ html, body {
 }
 
 .cardTitle {
-    padding-top: 20px;
+    padding-top: 10px;
     font-size: larger;
     text-align: center;
     font-weight: 700;
@@ -106,7 +106,7 @@ html, body {
 
 .cardDesc {
     padding-top: 10px;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     font-size: large;
     text-align: center;
 }
