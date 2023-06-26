@@ -1,43 +1,51 @@
 const books = [
     {
         image: {
-            src: "https://i.pinimg.com/736x/19/26/96/192696fe4b50aec395b35d63c2539bbc.jpg",
-            alt: "im an alt"
+            src: "https://m.media-amazon.com/images/I/517kRLGM5tL._AC_UF1000,1000_QL80_.jpg",
+            alt: "Drawing on the Right Side of the Brain Cover"
         },
-        title: "placeholder",
-        description: "placeholding for you!",
+        title: "Drawing on the Right Side of the Brain",
+        description: "Betty Edwards always believed there are five components to drawing from life. Explore the world of art by diving into the basics.",
     },
     {
         image: {
-            src: "https://media1.popsugar-assets.com/files/thumbor/wh0y9TxHHfw73Je1ETKQJAyEJ38/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2014/11/26/625/n/1922398/a3dbbb89b318aa5b_thumb_temp_image35315381417010330/i/Dog-Dancing-Flo-Rida-Low-Video.jpg",
-            alt: "placed"
+            src: "https://m.media-amazon.com/images/I/81TZQkrNCKL._AC_UF894,1000_QL80_.jpg",
+            alt: "Skaven War Tome"
         },
-        title: "placeholder",
-        description: "placeholding for you!",
+        title: "Warhammer BattleTome: Skaven",
+        description: "Based off of Warhammer: Age of Sigmar, this battletome provides all the artillery you need to destroy your human enemies!",
     },
     {
         image: {
-            src: "https://i.redd.it/jxhf62wtfqr01.png",
-            alt: "placed"
+            src: "https://images.bwbcovers.com/061/The-Lord-of-the-Rings-Tolkien-J-R-R-9780618129010.jpg",
+            alt: "The Lord of the Rings Cover"
         },
-        title: "placeholder",
-        description: "placeholding for you!",
+        title: "The Lord of the Rings Cover",
+        description: "The Lord of the Rings is the saga of a group of heroes who set forth to save their world from consummate evil. ",
     },
     {
         image: {
-            src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2BgIjOjCMXeH3ZaxR4vgngTsxwHmrKa8x8g&usqp=CAU",
+            src: "https://m.media-amazon.com/images/I/91cWXGL4ZfL._AC_UF1000,1000_QL80_.jpg",
             alt: "placed"
         },
-        title: "placeholder",
-        description: "placeholding for you!",
+        title: "Japanese Knitting Stitch Bible",
+        description: "In the Japanese Knitting Stitch Bible knitting guru Hitomi Shida shares some of her favorite needlework patterns.",
     },
     {
         image: {
-            src: "https://cdn.thewirecutter.com/wp-content/uploads/2018/06/unexpectedpetaccessories-Shannon-lowres-6819.jpg?auto=webp&quality=60&width=570",
+            src: "https://m.media-amazon.com/images/I/61mKuwBtVwL._AC_UF1000,1000_QL80_.jpg",
             alt: "placed"
         },
-        title: "placeholder",
-        description: "placeholding for you!",
+        title: "The Official Pokemon Full Pokedex Guide: Diamond and Pearl",
+        description: "Discover all the amazing Pokemon that have been found before and during the 4th Generation!",
+    },
+    {
+        image: {
+            src: "https://m.media-amazon.com/images/I/81am+CBYR1L._AC_UF1000,1000_QL80_.jpg",
+            alt: "Elden Ring Artbook Cover"
+        },
+        title: "Elden Ring: Official Artbook Vol I.",
+        description: "The official artists of Elden Ring have worked tirelessly to bring you the immersive imagery of their world.",
     }
     
 ]
