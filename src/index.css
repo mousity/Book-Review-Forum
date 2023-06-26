@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
     margin: 0px;
+    padding: 0px;
     width: 100%;
 }
 
@@ -86,8 +87,8 @@ html, body {
     text-align: left;
     background-color: aliceblue;
     width: 100%;
-    padding: 15px;
-    padding-left: 80px;
+    padding: 0px;
+    padding-left: 0px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 8px;
     margin-bottom: 0px;
     display: flex;
@@ -117,6 +118,8 @@ html, body {
     border-radius: 50%;
     border-style: solid;
     border-color: rgb(137, 118, 231);
+    margin: 15px;
+    margin-left: 40px;
 }
 
 .topTitle {
@@ -148,3 +151,22 @@ html, body {
 .favorite:hover, .showReviews:hover, .navButton:hover , .searchBar:hover {
     background-color: rgb(137, 118, 231);
 }
+
+.footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(45, 44, 44);
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    padding-left: 2.5em;
+    gap: 3em;
+    flex-shrink: 1;
+ }
+
+ .footer * {
+    font-size: x-large;
+    font-weight: 600;
+ }
