@@ -53,8 +53,6 @@ const books = [
         author: "FromSoftware",
         description: "The official artists of Elden Ring have worked tirelessly to bring you the immersive imagery of their world.",
     }
-    
 ]
 
 export default books;
-
