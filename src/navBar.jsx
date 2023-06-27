@@ -1,11 +1,13 @@
 import React, { Fragment, onChange, useState } from "react";
 import books from "./pageData";
 import BookCard from "./bookCard";
+import NewBook from "./newBook";
 
 export default function NavBar () {
 
     const [titleQuery, setTitleQuery] = useState("");
     const [authorQuery, setAuthorQuery] = useState("");
+    const [bookList, setBookList] = useState(books);
     function handleTitleChange(event) {
         setTitleQuery(event.target.value);
     }
@@ -31,7 +33,11 @@ export default function NavBar () {
 
                 <div className="content">
                     <div className="contentChild">
-                        <BookCard books={books} titleQuery={titleQuery} authorQuery={authorQuery}/>
+                        <BookCard bookList={bookList} titleQuery={titleQuery} authorQuery={authorQuery}/>
+                        <div className="card">
+                            <NewBook bookList={bookList} setBookList={setBookList}/>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
