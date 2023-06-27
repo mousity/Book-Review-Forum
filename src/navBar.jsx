@@ -42,8 +42,8 @@ export default function NavBar () {
                 </div>
             </div>
             <div className="footer">
-                <p className="link">GitHub</p>
-                <p className="link">LinkedIn</p>
+                <a href="https://github.com/mousity" className="link">GitHub</a>
+                <a href="https://www.linkedin.com/in/samrmouna/" className="link">LinkedIn</a>
             </div>
         </div>
     )
