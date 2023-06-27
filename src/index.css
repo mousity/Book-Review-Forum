@@ -186,6 +186,13 @@ html, body {
  }
 
 .link {
-    margin-left: 80px;
+    margin-left: 20px;
     margin-right: 0px;
+    padding: 20px;
+    text-decoration: none;
+    color: white;
+}
+
+.link:hover {
+    color:#79b096;
 }
