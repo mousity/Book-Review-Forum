@@ -1,11 +1,15 @@
 import { useState } from "react";
 
-export default function BookCard ({books, titleQuery, authorQuery}) {
+export default function BookCard ({bookList, titleQuery, authorQuery}) {
     
-    const list = [];
+  const list = [];
 
-  books.forEach((item, index) => {
+  bookList.forEach((item, index) => {
 
+    if(!item.title){
+      debugger;
+    }
+    console.log(item.title);
     if(item.title.toLowerCase().includes(titleQuery.toLowerCase()) && item.author.toLowerCase().includes(authorQuery.toLowerCase())){
       list.push(
         <div className="card" key={index}>
