@@ -161,7 +161,7 @@ html, body {
     text-align: center;
     display: flex;
     flex-direction: row;
-    padding-left: 2.5em;
+    padding: 0px;
     gap: 3em;
     flex-shrink: 1;
  }
@@ -170,3 +170,22 @@ html, body {
     font-size: x-large;
     font-weight: 600;
  }
+
+ .newBookForm {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+ }
+
+ .newBook {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+
+.link {
+    margin-left: 80px;
+    margin-right: 0px;
+}

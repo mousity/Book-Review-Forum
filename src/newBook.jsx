@@ -42,6 +42,10 @@ export default function NewBook({ bookList, setBookList }) {
 
     return (
     <form onSubmit={handleSubmit} className="newBookForm">
+        <div className="newBook">
+            <h2 id="newBookHead">Add New Book?</h2>
+            <img src="src\assets\smallBook.png"/>
+        </div>
       <div>
         <label htmlFor="image">Image URL</label>
         <input id="image" type="URL" value={image} onChange={handleImage}

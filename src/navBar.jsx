@@ -42,8 +42,8 @@ export default function NavBar () {
                 </div>
             </div>
             <div className="footer">
-                <p>GitHub</p>
-                <p>LinkedIn</p>
+                <p className="link">GitHub</p>
+                <p className="link">LinkedIn</p>
             </div>
         </div>
     )
