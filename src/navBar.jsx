@@ -2,18 +2,31 @@ import React, { Fragment, onChange, useState } from "react";
 import books from "./pageData";
 import BookCard from "./bookCard";
 import NewBook from "./newBook";
+import About from "./UI/AboutModal";
 
 export default function NavBar () {
 
     const [titleQuery, setTitleQuery] = useState("");
     const [authorQuery, setAuthorQuery] = useState("");
     const [bookList, setBookList] = useState(books);
+    const [isAboutActive, setIsAboutActive] = useState(false);
+
     function handleTitleChange(event) {
         setTitleQuery(event.target.value);
     }
 
     function handleAuthorChange(event) {
         setAuthorQuery(event.target.value);
+    }
+
+    const handleAbout = (e) => {
+        e.preventDefault();
+        setIsAboutActive(true);
+    } 
+
+    const hideModal = (e) => {
+        e.preventDefault();
+        setIsAboutActive(false);
     }
 
     return (
@@ -27,7 +40,7 @@ export default function NavBar () {
                     <input id="searchTitle" placeholder="Search Book Title" onChange={handleTitleChange}/>
                     <input id="searchAuthor" placeholder="Search Book Author" onChange={handleAuthorChange}/>
                     <button className="navButton">Home</button>
-                    <button className="navButton">About Us</button>
+                    <button className="navButton" onClick={handleAbout}>About Us</button>
                     <button className="navButton">Favorites</button>
                 </div>
 
@@ -45,6 +58,10 @@ export default function NavBar () {
                 <a href="https://github.com/mousity" className="link">GitHub</a>
                 <a href="https://www.linkedin.com/in/samrmouna/" className="link">LinkedIn</a>
             </div>
+
+            <About isVisible={isAboutActive} hideModal={hideModal}>
+            </About>
+
         </div>
     )
 }
