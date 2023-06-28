@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function BookCard ({bookList, titleQuery, authorQuery}) {
-    
+  // console.log(bookList, '')
   const list = [];
 
   bookList.forEach((item, index) => {

@@ -1,24 +1,36 @@
 import React, { Fragment, onChange, useEffect, useState } from "react";
-//import books from "./pageData";
+import books from "./pageData";
 import BookCard from "./bookCard";
 import NewBook from "./newBook";
 import About from "./UI/AboutModal";
-
 export default function NavBar () {
 
     const [titleQuery, setTitleQuery] = useState("");
     const [authorQuery, setAuthorQuery] = useState("");
-    const [bookList, setBookList] = useState([]);
+    const [bookList, setBookList] = useState(books);
     const [isAboutActive, setIsAboutActive] = useState(false);
+    
 
     useEffect(() => {
+
+        let ignore = false;
+
         async function fetchBooks() {
             const response = await fetch("http://localhost:3000/books");
             const books = await response.json();
-            setBookList(books);
+            if(!ignore){
+                setBookList(books);
+            }
+            
+            console.log(books);
         }
 
         fetchBooks();
+
+        return () => {
+            ignore = true;
+          }
+        
     }, [])
 
     function handleTitleChange(event) {

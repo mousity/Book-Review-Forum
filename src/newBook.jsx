@@ -23,21 +23,37 @@ export default function NewBook({ bookList, setBookList }) {
         setDescription(event.target.value);
       };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log("im in here");
-            newBook.push({
-                image: {
-                    src: image,
-                    alt: "Custom Book"
-                },
-                title: title,
-                author: author,
-                description: description,
-            })
+        
+        const preparedBook = {
+          image: { src: image, alt: "str"},
+          title: title,
+          author: author,
+          description: description,
+        };
 
-        setBookList(newBook);
-        debugger;
+        const response = await fetch("http://localhost:3000/books", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(preparedBook),
+        })
+
+        const newBook = response.json();
+            // newBook.push({
+            //     image: {
+            //         src: image,
+            //         alt: "Custom Book"
+            //     },
+            //     title: title,
+            //     author: author,
+            //     description: description,
+            // })
+
+        setBookList([...bookList, newBook]);
+      
       };
 
     return (
