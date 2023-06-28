@@ -30,6 +30,7 @@ export default function NavBar () {
     }
 
     return (
+        <>
         <div className="entirePage">
             <span className="heading">
                 <img className="logo" src="src\assets\Logo.jpg" alt="Book Cat"></img>
@@ -58,11 +59,10 @@ export default function NavBar () {
                 <a href="https://github.com/mousity" className="link">GitHub</a>
                 <a href="https://www.linkedin.com/in/samrmouna/" className="link">LinkedIn</a>
             </div>
-
-            <About isVisible={isAboutActive} hideModal={hideModal}>
-            </About>
-
         </div>
+        <About isVisible={isAboutActive} hideModal={hideModal}>
+        </About>
+        </>
     )
 }
 

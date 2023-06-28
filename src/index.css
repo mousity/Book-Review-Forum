@@ -216,7 +216,10 @@ html, body {
     width: 50%;
     height: 40%;
     border-radius: 3%;
-    background-color: aliceblue;
+    background-color: rgb(174, 158, 255);
+    display: flex;
+    flex-direction: column;
+    color: white;
 }
 
 .aboutModalTop {
@@ -227,9 +230,16 @@ html, body {
     
 }
 
+.aboutModalContent {
+    padding: 20px 20px;
+    font-size: xx-large;
+    margin: 10px;
+}
+
 .exit {
     background-color: aliceblue;
     align-self: center;
     width: 2em;
     height: 2em;
 }
+
