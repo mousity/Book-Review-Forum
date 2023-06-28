@@ -5,17 +5,19 @@
     flex-direction: column;
     margin: 0px;
     padding: 0px;
-    width: 100%;
+    min-width: 100vw;
 }
 
 html, body {
     margin: 0;
     min-height: 100vh;
+    
 }
 
 .page {
     display: flex;
     flex-direction: row;
+    width: 100%;
 }
 
 .navbar {
@@ -29,14 +31,18 @@ html, body {
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     margin-left: 1%;
     width: 200px;
+    flex-shrink: 1;
+}
+
+.content {
+    width: 100%;
 }
 
 .contentChild {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+    flex-basis: 100%;
 }
 
 .cardImage {
@@ -44,6 +50,7 @@ html, body {
     height: 250px;
     border-radius: 15%;
     object-fit: cover;
+    flex-shrink: 1;
 }
 
 .card {
@@ -58,7 +65,8 @@ html, body {
     border-radius: 10%;
     height: 420px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 8px;
-    width: 350px;
+    flex-basis: 350px;
+    flex-shrink: 1;
 }
 
 
@@ -73,6 +81,7 @@ html, body {
     font-size: 20px;
     color: white;
     border-radius: 3%;
+    flex-shrink: 1;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 
@@ -102,6 +111,7 @@ html, body {
     font-size: larger;
     text-align: center;
     font-weight: 700;
+    flex-shrink: 1;
 }
 
 .cardDesc {
@@ -109,6 +119,7 @@ html, body {
     padding-bottom: 10px;
     font-size: large;
     text-align: center;
+    flex-shrink: 1;
 }
 
 .logo {
@@ -136,6 +147,7 @@ html, body {
     align-items: flex-end;
     justify-content: space-between;
     flex: 1;
+    flex-shrink: 1;
 }
 
 .favorite, .showReviews {
