@@ -208,3 +208,29 @@ html, body {
 .link:hover {
     color:#79b096;
 }
+
+.aboutModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 40%;
+    border-radius: 3%;
+    background-color: aliceblue;
+}
+
+.aboutModalTop {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    padding: 20px 20px;
+    
+}
+
+.exit {
+    background-color: aliceblue;
+    align-self: center;
+    width: 2em;
+    height: 2em;
+}
