@@ -9,20 +9,18 @@ export default function NavBar () {
     const [authorQuery, setAuthorQuery] = useState("");
     const [bookList, setBookList] = useState(books);
     const [isAboutActive, setIsAboutActive] = useState(false);
-    
+    const apiURL = "http://localhost:3000/books";
 
     useEffect(() => {
 
         let ignore = false;
 
         async function fetchBooks() {
-            const response = await fetch("http://localhost:3000/books");
+            const response = await fetch(apiURL);
             const books = await response.json();
             if(!ignore){
                 setBookList(books);
             }
-            
-            console.log(books);
         }
 
         fetchBooks();
@@ -69,9 +67,9 @@ export default function NavBar () {
 
                 <div className="content">
                     <div className="contentChild">
-                        <BookCard bookList={bookList} titleQuery={titleQuery} authorQuery={authorQuery}/>
+                        <BookCard bookList={bookList} titleQuery={titleQuery} authorQuery={authorQuery} apiURL={apiURL}/>
                         <div className="card">
-                            <NewBook bookList={bookList} setBookList={setBookList}/>
+                            <NewBook bookList={bookList} setBookList={setBookList} apiURL={apiURL}/>
                         </div>
                         
                     </div>
