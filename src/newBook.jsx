@@ -5,7 +5,6 @@ export default function NewBook({ bookList, setBookList, apiURL }) {
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [description, setDescription] = useState('');
-    const newBook = [...bookList];
 
     const handleImage = (event) => {
         setImage(event.target.value);
