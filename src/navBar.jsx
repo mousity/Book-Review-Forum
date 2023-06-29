@@ -3,34 +3,14 @@ import books from "./pageData";
 import BookCard from "./bookCard";
 import NewBook from "./newBook";
 import About from "./UI/AboutModal";
+import PageContent from "./pageContent";
+
 export default function NavBar () {
 
     const [titleQuery, setTitleQuery] = useState("");
     const [authorQuery, setAuthorQuery] = useState("");
-    const [bookList, setBookList] = useState(books);
     const [isAboutActive, setIsAboutActive] = useState(false);
     const apiURL = "http://localhost:3000/books";
-
-    useEffect(() => {
-
-        let ignore = false;
-
-        async function fetchBooks() {
-            const response = await fetch(apiURL);
-            const books = await response.json();
-            if(!ignore){
-                setBookList(books);
-            }
-        }
-
-        fetchBooks();
-
-        return () => {
-            ignore = true;
-          }
-        
-    }, [])
-
     function handleTitleChange(event) {
         setTitleQuery(event.target.value);
     }
@@ -38,6 +18,9 @@ export default function NavBar () {
     function handleAuthorChange(event) {
         setAuthorQuery(event.target.value);
     }
+
+
+    
 
     const handleAbout = (e) => {
         e.preventDefault();
@@ -64,16 +47,7 @@ export default function NavBar () {
                     <button className="navButton" onClick={handleAbout}>About Us</button>
                     <button className="navButton">Favorites</button>
                 </div>
-
-                <div className="content">
-                    <div className="contentChild">
-                        <BookCard bookList={bookList} titleQuery={titleQuery} authorQuery={authorQuery} apiURL={apiURL}/>
-                        <div className="card">
-                            <NewBook bookList={bookList} setBookList={setBookList} apiURL={apiURL}/>
-                        </div>
-                        
-                    </div>
-                </div>
+                <PageContent apiURL={apiURL} titleQuery={titleQuery} authorQuery={authorQuery}/>
             </div>
             <div className="footer">
                 <a href="https://github.com/mousity" className="link">GitHub</a>

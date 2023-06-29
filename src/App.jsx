@@ -5,8 +5,7 @@ import './App.css'
 import NavBar from './navBar'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  
   return (
     <div id='head'>
       <NavBar />

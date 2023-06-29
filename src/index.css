@@ -33,6 +33,10 @@ html, body {
     flex-shrink: 1;
 }
 
+.pageCont {
+    width: 100%;
+}
+
 .content {
     width: 100%;
 }
