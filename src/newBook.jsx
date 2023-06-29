@@ -23,38 +23,29 @@ export default function NewBook({ bookList, setBookList }) {
         setDescription(event.target.value);
       };
 
+
+
     const handleSubmit = async (event) => {
         event.preventDefault();
-        
         const preparedBook = {
           image: { src: image, alt: "str"},
           title: title,
           author: author,
           description: description,
-        };
+        }
 
-        const response = await fetch("http://localhost:3000/books", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(preparedBook),
-        })
+        const response = await fetch('http://localhost:3000/books', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(preparedBook)
+        
+      })
 
-        const newBook = response.json();
-            // newBook.push({
-            //     image: {
-            //         src: image,
-            //         alt: "Custom Book"
-            //     },
-            //     title: title,
-            //     author: author,
-            //     description: description,
-            // })
-
-        setBookList([...bookList, newBook]);
-      
-      };
+    const newBook = await response.json();
+    setBookList([...bookList, newBook]);
+}
 
     return (
     <form onSubmit={handleSubmit} className="newBookForm">
