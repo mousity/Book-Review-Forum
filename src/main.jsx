@@ -2,25 +2,25 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
-import { createBrowserRouter, RouterProvider} from "react-router-dom"
+import { createBrowserRouter, RouterProvider, redirect} from "react-router-dom"
 import BookCard from './bookCard.jsx'
+import PageContent from './pageContent.jsx'
+import NavBar from './navBar.jsx'
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    // children: [
-    //   {
-    //     path: "/books",
-    //     element: <BookCard/>,
-    //   }
-    // ]
+    
+    
+    children: [
+      {
+        path: "/",
+        element: <PageContent />
+      },
+    ],
   },
-  {
-    path: "/books",
-    element: <BookCard />
-  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
