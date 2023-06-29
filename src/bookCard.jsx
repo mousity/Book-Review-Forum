@@ -1,8 +1,16 @@
 import { useState } from "react";
 
-export default function BookCard ({bookList, titleQuery, authorQuery}) {
+export default function BookCard ({bookList, titleQuery, authorQuery, apiURL}) {
   // console.log(bookList, '')
   const list = [];
+
+  console.log(apiURL);
+  const handleDelete = async (id) => {
+    await fetch(`${apiURL}/${id}`, {
+      method: 'DELETE'
+    });
+    window.location.reload(true);
+  }
 
   bookList.forEach((item, index) => {
 
@@ -20,6 +28,7 @@ export default function BookCard ({bookList, titleQuery, authorQuery}) {
           <div className="options">
               <button className="favorite">Make Favorite?</button>
               <button className="showReviews">Show Reviews</button>
+              <button className="delete" onClick={() => handleDelete(item.id)}>Delete</button>
           </div>
         </div>
       );
