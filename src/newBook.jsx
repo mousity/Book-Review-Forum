@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function NewBook({ bookList, setBookList }) {
+export default function NewBook({ bookList, setBookList, apiURL }) {
     const [image, setImage] = useState('');
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
@@ -34,7 +34,7 @@ export default function NewBook({ bookList, setBookList }) {
           description: description,
         }
 
-        const response = await fetch('http://localhost:3000/books', {
+        const response = await fetch(apiURL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
