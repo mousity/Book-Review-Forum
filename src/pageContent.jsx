@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import BookCard from "./bookCard";
 import NewBook from "./newBook";
+import { useOutletContext } from "react-router-dom"
 
-export default function PageContent ({ apiURL, titleQuery, authorQuery }) {
+export default function PageContent () {
 
     
     const [bookList, setBookList] = useState([]);
-
+    const { apiURL, titleQuery, authorQuery } = useOutletContext();
     useEffect(() => {
 
         let ignore = false;
