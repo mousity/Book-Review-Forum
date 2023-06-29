@@ -153,6 +153,10 @@ html, body {
     flex-shrink: 1;
 }
 
+.options > * {
+    flex-shrink: 1;
+}
+
 .favorite, .showReviews {
     text-decoration: none;
     color: white;
@@ -217,8 +221,8 @@ html, body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 50%;
-    height: 40%;
+    width: 40em;
+    height: 30em;
     border-radius: 3%;
     background-color: rgb(174, 158, 255);
     display: flex;
