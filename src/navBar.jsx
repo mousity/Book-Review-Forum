@@ -1,9 +1,7 @@
 import React, { Fragment, onChange, useEffect, useState } from "react";
-import books from "./pageData";
-import BookCard from "./bookCard";
-import NewBook from "./newBook";
 import About from "./UI/AboutModal";
 import PageContent from "./pageContent";
+import { Outlet } from "react-router-dom"
 
 export default function NavBar () {
 
@@ -11,6 +9,8 @@ export default function NavBar () {
     const [authorQuery, setAuthorQuery] = useState("");
     const [isAboutActive, setIsAboutActive] = useState(false);
     const apiURL = "http://localhost:3000/books";
+
+    console.log(apiURL);
     function handleTitleChange(event) {
         setTitleQuery(event.target.value);
     }
@@ -19,8 +19,6 @@ export default function NavBar () {
         setAuthorQuery(event.target.value);
     }
 
-
-    
 
     const handleAbout = (e) => {
         e.preventDefault();
@@ -47,7 +45,7 @@ export default function NavBar () {
                     <button className="navButton" onClick={handleAbout}>About Us</button>
                     <button className="navButton">Favorites</button>
                 </div>
-                <PageContent apiURL={apiURL} titleQuery={titleQuery} authorQuery={authorQuery}/>
+                <Outlet context={{apiURL, titleQuery, authorQuery}}/>
             </div>
             <div className="footer">
                 <a href="https://github.com/mousity" className="link">GitHub</a>
