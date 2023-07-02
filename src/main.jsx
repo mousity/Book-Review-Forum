@@ -19,6 +19,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <PageContent />
       },
+      {
+        path: "/books/:id",
+        element: <PageContent />
+      },
     ],
   },
 ]);
