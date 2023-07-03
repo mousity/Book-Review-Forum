@@ -9,6 +9,7 @@ import NavBar from './navBar.jsx'
 import DetailedPage from './detailedPage.jsx'
 import { useLoaderData } from 'react-router-dom'
 import load from './loadBooks.jsx'
+import addNewBook from './newBook.jsx'
 
 
 const router = createBrowserRouter([
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         loader: load,
+        action: addNewBook,
         element: <PageContent />
       },
       {
