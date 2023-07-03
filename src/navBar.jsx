@@ -1,7 +1,7 @@
 import React, { Fragment, onChange, useEffect, useState } from "react";
 import About from "./UI/AboutModal";
 import PageContent from "./pageContent";
-import { Outlet } from "react-router-dom"
+import { Outlet, Link } from "react-router-dom"
 
 export default function NavBar () {
 
@@ -41,15 +41,15 @@ export default function NavBar () {
                 <div className="navbar">
                     <input id="searchTitle" placeholder="Search Book Title" onChange={handleTitleChange}/>
                     <input id="searchAuthor" placeholder="Search Book Author" onChange={handleAuthorChange}/>
-                    <button className="navButton">Home</button>
+                    <Link to="/" className="navButton">Home</Link>
                     <button className="navButton" onClick={handleAbout}>About Us</button>
                     <button className="navButton">Favorites</button>
                 </div>
                 <Outlet context={{apiURL, titleQuery, authorQuery}}/>
             </div>
             <div className="footer">
-                <a href="https://github.com/mousity" className="link">GitHub</a>
-                <a href="https://www.linkedin.com/in/samrmouna/" className="link">LinkedIn</a>
+                <a href="https://github.com/mousity" target="_blank" className="link">GitHub</a>
+                <a href="https://www.linkedin.com/in/samrmouna/" target="_blank" className="link">LinkedIn</a>
             </div>
         </div>
         <About isVisible={isAboutActive} hideModal={hideModal}>
