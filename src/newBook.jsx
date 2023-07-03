@@ -94,7 +94,6 @@ export const addNewBook = async ({ request }) => {
     description: data.get("description")
   }
 
-  debugger;
   console.log(submission);
 
   return redirect('/');
