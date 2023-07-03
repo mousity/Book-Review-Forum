@@ -1,36 +1,16 @@
 import React, { Fragment, onChange, useEffect, useState } from "react";
-import books from "./pageData";
-import BookCard from "./bookCard";
-import NewBook from "./newBook";
 import About from "./UI/AboutModal";
+import PageContent from "./pageContent";
+import { Outlet, Link } from "react-router-dom"
+
 export default function NavBar () {
 
     const [titleQuery, setTitleQuery] = useState("");
     const [authorQuery, setAuthorQuery] = useState("");
-    const [bookList, setBookList] = useState(books);
     const [isAboutActive, setIsAboutActive] = useState(false);
     const apiURL = "http://localhost:3000/books";
 
-    useEffect(() => {
-
-        let ignore = false;
-
-        async function fetchBooks() {
-            const response = await fetch(apiURL);
-            const books = await response.json();
-            if(!ignore){
-                setBookList(books);
-            }
-        }
-
-        fetchBooks();
-
-        return () => {
-            ignore = true;
-          }
-        
-    }, [])
-
+    console.log(apiURL);
     function handleTitleChange(event) {
         setTitleQuery(event.target.value);
     }
@@ -38,6 +18,7 @@ export default function NavBar () {
     function handleAuthorChange(event) {
         setAuthorQuery(event.target.value);
     }
+
 
     const handleAbout = (e) => {
         e.preventDefault();
@@ -60,20 +41,11 @@ export default function NavBar () {
                 <div className="navbar">
                     <input id="searchTitle" placeholder="Search Book Title" onChange={handleTitleChange}/>
                     <input id="searchAuthor" placeholder="Search Book Author" onChange={handleAuthorChange}/>
-                    <button className="navButton">Home</button>
+                    <Link to="/" className="navButton">Home</Link>
                     <button className="navButton" onClick={handleAbout}>About Us</button>
                     <button className="navButton">Favorites</button>
                 </div>
-
-                <div className="content">
-                    <div className="contentChild">
-                        <BookCard bookList={bookList} titleQuery={titleQuery} authorQuery={authorQuery} apiURL={apiURL}/>
-                        <div className="card">
-                            <NewBook bookList={bookList} setBookList={setBookList} apiURL={apiURL}/>
-                        </div>
-                        
-                    </div>
-                </div>
+                <Outlet context={{apiURL, titleQuery, authorQuery}}/>
             </div>
             <div className="footer">
                 <a href="https://github.com/mousity" target="_blank" className="link">GitHub</a>
