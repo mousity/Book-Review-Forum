@@ -251,3 +251,7 @@ html, body {
     height: 2em;
 }
 
+a:-webkit-any-link {
+    color: black;
+    text-decoration: none;
+}

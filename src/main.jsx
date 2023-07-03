@@ -6,14 +6,14 @@ import { createBrowserRouter, RouterProvider, redirect} from "react-router-dom"
 import BookCard from './bookCard.jsx'
 import PageContent from './pageContent.jsx'
 import NavBar from './navBar.jsx'
+import DetailedPage from './detailedPage.jsx'
+import { useLoaderData } from 'react-router-dom'
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    
-    
     children: [
       {
         path: "/",
@@ -21,7 +21,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/books/:id",
-        element: <PageContent />
+        element: <DetailedPage />
       },
     ],
   },
