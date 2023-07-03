@@ -76,8 +76,8 @@ export default function NavBar () {
                 </div>
             </div>
             <div className="footer">
-                <a href="https://github.com/mousity" className="link">GitHub</a>
-                <a href="https://www.linkedin.com/in/samrmouna/" className="link">LinkedIn</a>
+                <a href="https://github.com/mousity" target="_blank" className="link">GitHub</a>
+                <a href="https://www.linkedin.com/in/samrmouna/" target="_blank" className="link">LinkedIn</a>
             </div>
         </div>
         <About isVisible={isAboutActive} hideModal={hideModal}>
