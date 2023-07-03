@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function NewBook({ bookList, setBookList, apiURL }) {
+export default function NewBook({ bookList, apiURL }) {
     const [image, setImage] = useState('');
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
@@ -43,7 +43,7 @@ export default function NewBook({ bookList, setBookList, apiURL }) {
       })
 
     const newBook = await response.json();
-    setBookList([...bookList, newBook]);
+    // setBookList([...bookList, newBook]);
 }
 
     return (
