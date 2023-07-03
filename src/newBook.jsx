@@ -86,11 +86,12 @@ export const addNewBook = async ({ request }) => {
   const data = await request.formData();
   const submission = {
     image: {
-      src: data.get('image')
+      src: data.get("image"),
+      alr: "str",
     },
-    title: data.get('title'),
-    author: data.get('author'),
-    description: data.get('description')
+    title: data.get("title"),
+    author: data.get("author"),
+    description: data.get("description")
   }
 
   debugger;
