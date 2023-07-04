@@ -15,9 +15,9 @@ export default function BookCard ({bookList, titleQuery, authorQuery, apiURL}) {
 
   bookList.forEach((item, index) => {
 
-    if(!item.title){
-      debugger;
-    }
+    // if(!item.title){
+    //   debugger;
+    // }
     console.log(item.title);
     if(item.title.toLowerCase().includes(titleQuery.toLowerCase()) && item.author.toLowerCase().includes(authorQuery.toLowerCase())){
       list.push(

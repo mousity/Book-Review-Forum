@@ -4,51 +4,7 @@ import { Form, redirect, useActionData } from "react-router-dom";
 export default function NewBook({ bookList, apiURL }) {
 
       const data = useActionData();
-//     const [image, setImage] = useState('');
-//     const [title, setTitle] = useState('');
-//     const [author, setAuthor] = useState('');
-//     const [description, setDescription] = useState('');
-
-//     const handleImage = (event) => {
-//         setImage(event.target.value);
-//       };
-    
-//     const handleTitle = (event) => {
-//         setTitle(event.target.value);
-//       };
-
-//     const handleAuthor = (event) => {
-//         setAuthor(event.target.value);
-//       };
-    
-//     const handleDescription = (event) => {
-//         setDescription(event.target.value);
-//       };
-
-
-
-//     const handleSubmit = async (event) => {
-//         event.preventDefault();
-//         const preparedBook = {
-//           image: { src: image, alt: "str"},
-//           title: title,
-//           author: author,
-//           description: description,
-//         }
-
-//         const response = await fetch(apiURL, {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(preparedBook)
-        
-//       })
-
-//     const newBook = await response.json();
-//     // setBookList([...bookList, newBook]);
-// }
-
+      
     return (
     <Form method="post" action="/" className="newBookForm">
         <div className="newBook">
@@ -94,7 +50,15 @@ export const addNewBook = async ({ request }) => {
     description: data.get("description")
   }
 
-  console.log(submission);
+  const book = JSON.stringify(submission);
 
-  return redirect('/');
+  fetch('http://localhost:3000/books', {
+  method: 'POST',
+  body: book,
+  headers: {
+    'Content-Type': 'application/json'
+  }
+}).then(response => response.json())
+
+return redirect('/');
 }
