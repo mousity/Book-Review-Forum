@@ -6,7 +6,7 @@ export default function BookCard ({bookList, titleQuery, authorQuery, apiURL}) {
   // console.log(bookList, '')
   const list = [];
   const data = useLoaderData();
-  const [fav, setFav] = useState(false);
+  const [fav, setFav] = useState({});
 
   console.log(apiURL);
 
@@ -26,7 +26,7 @@ export default function BookCard ({bookList, titleQuery, authorQuery, apiURL}) {
   }
 
   const makeFavorite = async (id) => {
-    setFav(!fav);
+    setFav(prevState => ({...prevState, [id]: !prevState[id]})); // Flip the favorite status of the specific book
     console.log(fav);
     await fetch(`${apiURL}/${id}`, {
       method: 'PATCH',
@@ -34,13 +34,13 @@ export default function BookCard ({bookList, titleQuery, authorQuery, apiURL}) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        favorite: fav
+        favorite: fav[id]
       })
     });
   }
 
 
-  bookList.forEach((item, index) => {
+  data.forEach((item, index) => {
 
     console.log(item.title);
     if(item.title.toLowerCase().includes(titleQuery.toLowerCase()) && item.author.toLowerCase().includes(authorQuery.toLowerCase())){
@@ -52,7 +52,7 @@ export default function BookCard ({bookList, titleQuery, authorQuery, apiURL}) {
           <div className="cardDesc">{item.description}</div>
           <div className="options">
               <button className="favorite" onClick={(e) => handleAction(e, item.id, 1)}>Favorite? 
-              {fav ? <AiFillStar/> : <AiOutlineStar/>}
+              {fav[item.id] ? <AiFillStar/> : <AiOutlineStar/>}
               </button>
               <button className="showReviews">Show Reviews</button>
               <button className="delete" onClick={(e) => handleAction(e, item.id, 2)}>Delete</button>
