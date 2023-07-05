@@ -1,12 +1,17 @@
 import { useState } from "react";
-import { Link } from "react-router-dom"
+import { Link, redirect } from "react-router-dom"
 
 export default function BookCard ({bookList, titleQuery, authorQuery, apiURL}) {
   // console.log(bookList, '')
   const list = [];
 
   console.log(apiURL);
-  const handleDelete = async (id) => {
+  const handleDelete = async (e, id) => {
+    e.stopPropagation();
+    deleteBook(e, id);
+  }
+
+  const deleteBook = async (e, id) => {
     await fetch(`${apiURL}/${id}`, {
       method: 'DELETE'
     });
@@ -15,9 +20,6 @@ export default function BookCard ({bookList, titleQuery, authorQuery, apiURL}) {
 
   bookList.forEach((item, index) => {
 
-    // if(!item.title){
-    //   debugger;
-    // }
     console.log(item.title);
     if(item.title.toLowerCase().includes(titleQuery.toLowerCase()) && item.author.toLowerCase().includes(authorQuery.toLowerCase())){
       list.push(
@@ -29,7 +31,7 @@ export default function BookCard ({bookList, titleQuery, authorQuery, apiURL}) {
           <div className="options">
               <button className="favorite">Make Favorite?</button>
               <button className="showReviews">Show Reviews</button>
-              <button className="delete" onClick={() => handleDelete(item.id)}>Delete</button>
+              <button className="delete" onClick={(e) => handleDelete(e, item.id)}>Delete</button>
           </div>
         </Link>
       );
