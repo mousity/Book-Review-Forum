@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, redirect, useActionData, useLoaderData, Navigate } from "react-router-dom";
+import { Link, redirect, useActionData, useLoaderData, Navigate, useLocation } from "react-router-dom";
 import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 
 export default function BookCard ({bookList, titleQuery, authorQuery, apiURL}) {
@@ -7,6 +7,7 @@ export default function BookCard ({bookList, titleQuery, authorQuery, apiURL}) {
   const list = [];
   const data = useLoaderData();
   const [fav, setFav] = useState({});
+  const location = useLocation();
 
   console.log(apiURL);
 
@@ -43,7 +44,8 @@ export default function BookCard ({bookList, titleQuery, authorQuery, apiURL}) {
   data.forEach((item, index) => {
 
     console.log(item.title);
-    if(item.title.toLowerCase().includes(titleQuery.toLowerCase()) && item.author.toLowerCase().includes(authorQuery.toLowerCase())){
+    if(item.title.toLowerCase().includes(titleQuery.toLowerCase()) && item.author.toLowerCase().includes(authorQuery.toLowerCase())
+        && location.pathname == "/"){
       list.push(
         <Link to={`/books/${item.id}`} className="card" key={index}>
           <img className="cardImage" src={item.image.src} alt={item.image.alt}/>
@@ -59,6 +61,23 @@ export default function BookCard ({bookList, titleQuery, authorQuery, apiURL}) {
           </div>
         </Link>
       );
+  } else if (item.title.toLowerCase().includes(titleQuery.toLowerCase()) && item.author.toLowerCase().includes(authorQuery.toLowerCase())
+  && location.pathname == "/favorites" && fav[item.id]){
+    list.push(
+      <Link to={`/books/${item.id}`} className="card" key={index}>
+        <img className="cardImage" src={item.image.src} alt={item.image.alt}/>
+        <div className="cardTitle">{item.title}</div>
+        <div className="author">By {item.author}</div>
+        <div className="cardDesc">{item.description}</div>
+        <div className="options">
+            <button className="favorite" onClick={(e) => handleAction(e, item.id, 1)}>Favorite? 
+            {fav[item.id] ? <AiFillStar/> : <AiOutlineStar/>}
+            </button>
+            <button className="showReviews">Show Reviews</button>
+            <button className="delete" onClick={(e) => handleAction(e, item.id, 2)}>Delete</button>
+        </div>
+      </Link>
+    );
   }});
 
 

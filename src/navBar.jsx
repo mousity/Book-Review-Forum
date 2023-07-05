@@ -43,7 +43,7 @@ export default function NavBar () {
                     <input id="searchAuthor" placeholder="Search Book Author" onChange={handleAuthorChange}/>
                     <Link to="/" className="navButton">Home</Link>
                     <button className="navButton" onClick={handleAbout}>About Us</button>
-                    <button className="navButton">Favorites</button>
+                    <Link to="/favorites" className="navButton">Favorites</Link>
                 </div>
                 <Outlet context={{apiURL, titleQuery, authorQuery}}/>
             </div>

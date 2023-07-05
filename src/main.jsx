@@ -29,6 +29,11 @@ const router = createBrowserRouter([
         loader: load,
         element: <DetailedPage />
       },
+      {
+        path: "/favorites",
+        loader: load,
+        element: <PageContent />
+      },
     ],
   },
 ]);
