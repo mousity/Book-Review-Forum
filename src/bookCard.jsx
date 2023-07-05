@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom"
 
 export default function BookCard ({bookList, titleQuery, authorQuery, apiURL}) {
   // console.log(bookList, '')
@@ -20,7 +21,7 @@ export default function BookCard ({bookList, titleQuery, authorQuery, apiURL}) {
     console.log(item.title);
     if(item.title.toLowerCase().includes(titleQuery.toLowerCase()) && item.author.toLowerCase().includes(authorQuery.toLowerCase())){
       list.push(
-        <div className="card" key={index}>
+        <Link to={`/books/${item.id}`} className="card" key={index}>
           <img className="cardImage" src={item.image.src} alt={item.image.alt}/>
           <div className="cardTitle">{item.title}</div>
           <div className="author">By {item.author}</div>
@@ -30,7 +31,7 @@ export default function BookCard ({bookList, titleQuery, authorQuery, apiURL}) {
               <button className="showReviews">Show Reviews</button>
               <button className="delete" onClick={() => handleDelete(item.id)}>Delete</button>
           </div>
-        </div>
+        </Link>
       );
   }});
 

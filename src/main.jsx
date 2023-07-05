@@ -6,16 +6,26 @@ import { createBrowserRouter, RouterProvider, redirect} from "react-router-dom"
 import BookCard from './bookCard.jsx'
 import PageContent from './pageContent.jsx'
 import NavBar from './navBar.jsx'
+import DetailedPage from './detailedPage.jsx'
+import { useLoaderData } from 'react-router-dom'
+import load from './loadBooks.jsx'
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    loader: load,
     children: [
       {
         path: "/",
+        loader: load,
         element: <PageContent />
+      },
+      {
+        path: "/books/:id",
+        loader: load,
+        element: <DetailedPage />
       },
     ],
   },
