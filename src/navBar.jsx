@@ -34,7 +34,7 @@ export default function NavBar () {
         <>
         <div className="entirePage">
             <span className="heading">
-                <img className="logo" src="src\assets\Logo.jpg" alt="Book Cat"></img>
+                <img className="logo" src="/src/assets/Logo.jpg" alt="Book Cat"></img>
                 <h1 className="topTitle">Path of Pages Forum</h1>
             </span>
             <div className="page">
