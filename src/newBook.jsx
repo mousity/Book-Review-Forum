@@ -47,7 +47,8 @@ export const addNewBook = async ({ request }) => {
     },
     title: data.get("title"),
     author: data.get("author"),
-    description: data.get("description")
+    description: data.get("description"),
+    favorite: false
   }
 
   const book = JSON.stringify(submission);

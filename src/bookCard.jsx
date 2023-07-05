@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Link, redirect } from "react-router-dom"
+import { Link, redirect } from "react-router-dom";
+import { AiOutlineStar } from "react-icons/ai";
 
 export default function BookCard ({bookList, titleQuery, authorQuery, apiURL}) {
   // console.log(bookList, '')
@@ -29,7 +30,7 @@ export default function BookCard ({bookList, titleQuery, authorQuery, apiURL}) {
           <div className="author">By {item.author}</div>
           <div className="cardDesc">{item.description}</div>
           <div className="options">
-              <button className="favorite">Make Favorite?</button>
+              <button className="favorite">Favorite? <AiOutlineStar/></button>
               <button className="showReviews">Show Reviews</button>
               <button className="delete" onClick={(e) => handleDelete(e, item.id)}>Delete</button>
           </div>
