@@ -1,23 +1,44 @@
-import { useState } from "react";
-import { Link, redirect } from "react-router-dom";
-import { AiOutlineStar } from "react-icons/ai";
+import { useState, useEffect } from "react";
+import { Link, redirect, useActionData, useLoaderData, Navigate } from "react-router-dom";
+import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 
 export default function BookCard ({bookList, titleQuery, authorQuery, apiURL}) {
   // console.log(bookList, '')
   const list = [];
+  const data = useLoaderData();
+  const [fav, setFav] = useState(false);
 
   console.log(apiURL);
-  const handleDelete = async (e, id) => {
+
+  const handleAction = (e, id, num) => {
+    console.log(e.target);
+    console.log("im here");
     e.stopPropagation();
-    deleteBook(e, id);
+    e.preventDefault();
+    (num === 1) ? makeFavorite(id) : deleteBook(id);
   }
 
-  const deleteBook = async (e, id) => {
+  const deleteBook = async (id) => {
     await fetch(`${apiURL}/${id}`, {
       method: 'DELETE'
     });
     window.location.reload(true);
   }
+
+  const makeFavorite = async (id) => {
+    setFav(!fav);
+    console.log(fav);
+    await fetch(`${apiURL}/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        favorite: fav
+      })
+    });
+  }
+
 
   bookList.forEach((item, index) => {
 
@@ -30,14 +51,15 @@ export default function BookCard ({bookList, titleQuery, authorQuery, apiURL}) {
           <div className="author">By {item.author}</div>
           <div className="cardDesc">{item.description}</div>
           <div className="options">
-              <button className="favorite">Favorite? <AiOutlineStar/></button>
+              <button className="favorite" onClick={(e) => handleAction(e, item.id, 1)}>Favorite? 
+              {fav ? <AiFillStar/> : <AiOutlineStar/>}
+              </button>
               <button className="showReviews">Show Reviews</button>
-              <button className="delete" onClick={(e) => handleDelete(e, item.id)}>Delete</button>
+              <button className="delete" onClick={(e) => handleAction(e, item.id, 2)}>Delete</button>
           </div>
         </Link>
       );
   }});
-
 
 
   return list;

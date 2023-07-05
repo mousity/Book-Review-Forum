@@ -65,6 +65,17 @@
       "author": "FromSoftware",
       "description": "The official artists of Elden Ring have worked tirelessly to bring you the immersive imagery of their world.",
       "favorite": false
+    },
+    {
+      "image": {
+        "src": "https://m.media-amazon.com/images/I/91cWXGL4ZfL._AC_UF1000,1000_QL80_.jpg",
+        "alr": "str"
+      },
+      "title": "j",
+      "author": "j",
+      "description": "j",
+      "favorite": true,
+      "id": 7
     }
   ]
 }
